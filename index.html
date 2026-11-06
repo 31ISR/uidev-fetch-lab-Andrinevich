@@ -1,35 +1,74 @@
 <!doctype html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Моя коллекция</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <header class="header">
-            <h1>Моя коллекция</h1>
-        </header>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Моды для My Winter Car — Каталог</title>
+    <meta name="description" content="Каталог модификаций для игры My Winter Car. Скачивайте, оценивайте и обсуждайте моды для зимнего вождения.">
+    
+    <meta property="og:title" content="Моды для My Winter Car">
+    <meta property="og:description" content="Лучшая коллекция модов для выживания в зимней Финляндии">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=My+Winter+Car+Mods">
+    
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <h1>Моды для My Winter Car</h1>
+        <p class="header__subtitle">На этом сайте выкладываются подборки модов для комфортного время препровождения</p>
+    </header>
 
-        <main class="container">
-            <p id="status" class="status">Загрузка...</p>
+    <main class="container">
+        <nav class="tabs">
+            <button class="tab-btn active" data-tab="all">Все моды</button>
+            <button class="tab-btn" data-tab="cars">Транспорт</button>
+            <button class="tab-btn" data-tab="graphics">Графика</button>
+            <button class="tab-btn" data-tab="utility">Утилиты</button>
+        </nav>
 
-            <div id="cards" class="cards">
-                <article class="card">
-                    <img
-                        class="card__image"
-                        src="https://via.placeholder.com/300x200"
-                        alt="Название" />
-                    <div class="card__body">
-                        <h2 class="card__title">Название</h2>
-                        <p class="card__text">Короткое описание записи.</p>
-                        <div class="card__footer">
-                            <span class="card__price">1200 ₽</span>
-                            <span class="badge badge--yes">В наличии</span>
-                        </div>
+        <div class="controls">
+            <input type="text" id="searchInput" placeholder="Поиск по названию или автору..." class="search-input">
+            <select id="sortSelect" class="sort-select">
+                <option value="new">Сначала новые</option>
+                <option value="old">Сначала старые</option>
+                <option value="rating">По рейтингу</option>
+            </select>
+        </div>
+
+        <p id="status" class="status">Загрузка модов...</p>
+
+        <div id="cards" class="cards"></div>
+    </main>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <div class="modal-header">
+                <img id="modalImage" src="" alt="Скриншот мода" class="modal-image">
+                <div class="modal-info">
+                    <h2 id="modalTitle"></h2>
+                    <p id="modalAuthor"></p>
+                    <div class="modal-stats">
+                        <span id="modalDownloads"></span>
+                        <span id="modalRating"></span>
                     </div>
-                </article>
+                </div>
             </div>
-        </main>
-    </body>
+            <p id="modalDescription"></p>
+            <div class="modal-actions">
+                <a id="downloadBtn" href="#" class="btn btn-download" download>Скачать (.zip)</a>
+                <button class="btn btn-like">Нравится (0)</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2026 Каталог модов My Winter Car. Неофициальный ресурс.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
 </html>
